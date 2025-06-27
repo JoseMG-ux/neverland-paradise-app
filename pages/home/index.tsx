@@ -1,6 +1,5 @@
 import { Input } from "@heroui/input";
 import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
 
 import { title, subtitle } from "@/components/primitives";
 import { SearchIcon } from "@/components/icons";
@@ -10,7 +9,7 @@ import Activities from "./components/Activities";
 const Home = () => {
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 ">
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 border-1">
         <div className="inline-block max-w-xl text-center justify-center">
           <span className={title({ color: "pink", fontWeight: "extrabold" })}>
             NEVERLAND&nbsp;
@@ -23,7 +22,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex gap-3 flex w-1/2">
+        <div className="flex gap-3 w-1/2">
           <Input
             aria-label="Search"
             classNames={{
@@ -48,11 +47,8 @@ const Home = () => {
           </Link> */}
         </div>
 
-        <div className="mt-8">
-          <Snippet hideCopyButton hideSymbol variant="bordered">
-            <span>
-              Get started by editing <Code color="primary">pages/Home.tsx</Code>
-            </span>
+        <div className="mt-8 flex w-full">
+          <Snippet hideCopyButton hideSymbol variant="bordered" className="w-full">
             <Activities />
           </Snippet>
         </div>

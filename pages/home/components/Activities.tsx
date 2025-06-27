@@ -1,5 +1,6 @@
-import { Card, CardHeader, CardBody, CardFooter, Image } from "@heroui/react";
+import { Card, CardBody, CardFooter, CardHeader, Image, Button, Slider } from "@heroui/react";
 Image
+import type { CardProps } from "@heroui/react";
 
 const list = [
   {
@@ -23,50 +24,42 @@ const list = [
     img: "",
   },
 ];
-const Activities = () => {
-  const cardActivity = () => (
-    <Card className="py-4">
-      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <p className="text-tiny uppercase font-bold">Daily Mix</p>
-        <small className="text-default-500">12 Tracks</small>
-        <h4 className="font-bold text-large">Frontend Radio</h4>
-      </CardHeader>
-      <CardBody className="overflow-visible py-2">
-        <Image
-          alt="Card background"
-          className="object-cover rounded-xl"
-          src="https://heroui.com/images/hero-card-complete.jpeg"
-          width={270}
-        />
-      </CardBody>
-    </Card>
-  );
+
+const Activities = (props: CardProps) => {
 
   return (
-    <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
-      {list.map((item, index) => (
+    <div className="flex flex-wrap justify-between gap-6 px-8 w-full">
+      {list.map((item) =>
         <Card
-          key={index}
-          isPressable
+          key={item.id}
+          // isBlurred
+           className="flex-1 max-w-[410px] border-1 w-md border-none" 
           shadow="sm"
-          onPress={() => console.log("item pressed")}
+          {...props}
         >
-          <CardBody className="overflow-visible p-0">
-            <Image
-              alt={item.title}
-              className="w-full object-cover h-[140px]"
-              radius="lg"
-              shadow="sm"
-              src={item.img}
-              width="100%"
-            />
+          <CardBody>
+            <div className="grid grid-cols-6 md:grid-cols-12 gap-6 md:gap-4 items-center justify-center">
+              <div className="relative col-span-6 md:col-span-4">
+                <Image
+                  alt="Album cover"
+                  className="object-cover"
+                  height={100}
+                  shadow="md"
+                  src="https://heroui.com/images/album-cover.png"
+                  width="100%"
+                />
+              </div>
+              <div className="flex flex-col col-span-6 md:col-span-8">
+                <div className="flex justify-between items-start">
+                  <div className="flex flex-col gap-0">
+                    <h1 className="text-large font-medium mt-2">{item.title}</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
           </CardBody>
-          <CardFooter className="text-small justify-between">
-            <b>{item.title}</b>
-            <p className="text-default-500"></p>
-          </CardFooter>
         </Card>
-      ))}
+      )}
     </div>
   );
 };
