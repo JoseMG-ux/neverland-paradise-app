@@ -1,21 +1,24 @@
 import { Input } from "@heroui/input";
-import { Snippet } from "@heroui/snippet";
+
+import Activities from "./components/Activities";
 
 import { title, subtitle } from "@/components/primitives";
 import { SearchIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
-import Activities from "./components/Activities";
 
 const Home = () => {
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 border-1">
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-xl text-center justify-center">
           <span className={title({ color: "pink", fontWeight: "extrabold" })}>
-            NEVERLAND&nbsp;
+            TITLE&nbsp; {/*NEVERLAND */}
           </span>
           <br />
-          <span className={title({ fontWeight: "extrabold" })}>PARADISE</span>
+          <span className={title({ fontWeight: "extrabold" })}>
+            SUBTITLE
+          </span>{" "}
+          {/*PARADISE */}
           <div className={subtitle({ class: "mt-4" })}>
             Aplicación con el fin de llevar la gestión de actividades del
             gremio.
@@ -48,9 +51,7 @@ const Home = () => {
         </div>
 
         <div className="mt-8 flex w-full">
-          <Snippet hideCopyButton hideSymbol variant="bordered" className="w-full">
-            <Activities />
-          </Snippet>
+          <Activities />
         </div>
       </section>
     </DefaultLayout>

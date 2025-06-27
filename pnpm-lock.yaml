@@ -47,6 +47,9 @@ importers:
       '@heroui/theme':
         specifier: 2.4.17
         version: 2.4.17(tailwindcss@3.4.16)
+      '@heroui/use-infinite-scroll':
+        specifier: ^2.2.9
+        version: 2.2.9(react@18.3.1)
       '@react-aria/visually-hidden':
         specifier: 3.8.24
         version: 3.8.24(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -706,6 +709,11 @@ packages:
 
   '@heroui/use-image@2.1.10':
     resolution: {integrity: sha512-I33fojDY/9MiXsJATO5nDVLlBhihQBdCeIQzPfZB5pUO1XQl193D0O1lUrYko9HyxbzYdiu2Ffmd0FC/NP/qlw==}
+    peerDependencies:
+      react: '>=18 || >=19.0.0-rc.0'
+
+  '@heroui/use-infinite-scroll@2.2.9':
+    resolution: {integrity: sha512-PCd8Gx5/c6tOj1gy9hApT9y0N1LOdeFM6632fPZC8bk9xSOp02uphY2mdjNjzpMD6lz3qIKly/wzB2D2YkWgnA==}
     peerDependencies:
       react: '>=18 || >=19.0.0-rc.0'
 
@@ -4068,6 +4076,11 @@ snapshots:
     dependencies:
       '@heroui/react-utils': 2.1.11(react@18.3.1)
       '@heroui/use-safe-layout-effect': 2.1.7(react@18.3.1)
+      react: 18.3.1
+
+  '@heroui/use-infinite-scroll@2.2.9(react@18.3.1)':
+    dependencies:
+      '@heroui/shared-utils': 2.1.9
       react: 18.3.1
 
   '@heroui/use-intersection-observer@2.2.13(react@18.3.1)':

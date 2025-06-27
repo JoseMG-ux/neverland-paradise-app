@@ -22,6 +22,7 @@
     "@heroui/switch": "2.2.20",
     "@heroui/system": "2.4.18",
     "@heroui/theme": "2.4.17",
+    "@heroui/use-infinite-scroll": "^2.2.9",
     "@react-aria/visually-hidden": "3.8.24",
     "clsx": "2.1.1",
     "framer-motion": "11.13.1",

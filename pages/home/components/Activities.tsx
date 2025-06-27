@@ -1,65 +1,42 @@
-import { Card, CardBody, CardFooter, CardHeader, Image, Button, Slider } from "@heroui/react";
-Image
 import type { CardProps } from "@heroui/react";
 
-const list = [
-  {
-    id: 1,
-    title: "Grupales",
-    img: "",
-  },
-  {
-    id: 2,
-    title: "Estaticas",
-    img: "",
-  },
-  {
-    id: 3,
-    title: "Roaming",
-    img: "",
-  },
-  {
-    id: 4,
-    title: "Gankeo",
-    img: "",
-  },
-];
+import { Card, CardBody } from "@heroui/react";
+import { link as linkStyles } from "@heroui/theme";
+import NextLink from "next/link";
+import clsx from "clsx";
+
+import { siteConfig } from "@/config/site";
 
 const Activities = (props: CardProps) => {
-
+  
   return (
-    <div className="flex flex-wrap justify-between gap-6 px-8 w-full">
-      {list.map((item) =>
+    <div className="flex flex-wrap justify-between gap-6 px-8 w-full h-32">
+      {siteConfig.navGroupDungeons.map((item) => (
         <Card
           key={item.id}
           // isBlurred
-           className="flex-1 max-w-[410px] border-1 w-md border-none" 
-          shadow="sm"
+          className="flex-1 max-w-[610px] w-md border-none"
+          shadow="md"
           {...props}
         >
           <CardBody>
-            <div className="grid grid-cols-6 md:grid-cols-12 gap-6 md:gap-4 items-center justify-center">
-              <div className="relative col-span-6 md:col-span-4">
-                <Image
-                  alt="Album cover"
-                  className="object-cover"
-                  height={100}
-                  shadow="md"
-                  src="https://heroui.com/images/album-cover.png"
-                  width="100%"
-                />
-              </div>
-              <div className="flex flex-col col-span-6 md:col-span-8">
-                <div className="flex justify-between items-start">
-                  <div className="flex flex-col gap-0">
-                    <h1 className="text-large font-medium mt-2">{item.title}</h1>
-                  </div>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "flex gap-6 items-center justify-center text-center hover:!bg-transparent h-full",
+              )}
+              color="foreground"
+              href={item.href}
+            >
+              <div className="flex justify-between items-start">
+                <div className="flex flex-col gap-0">
+                  <h1 className="text-3xl mt-2 font-bold">{item.label}</h1>
                 </div>
               </div>
-            </div>
+            </NextLink>
           </CardBody>
         </Card>
-      )}
+      ))}
     </div>
   );
 };
